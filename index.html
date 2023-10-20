@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meme Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Inline&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css-resets/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1 class="title">MEMEMAKER</h1>
+    <h2 class="instructions">Find an image, enter your text, and click the button!</h2>
+   
+    <form action="">
+      <div class="form__row">
+        <label for="" class="form__label">Place image link here</label>
+        <input type="text" class="form__input" id="form-link-img" name="form-link-img">
+      </div>
+      <div class="form__row">
+        <label for="form-text-top" class="form__label">Text on top (optional)</label>
+        <input type="text" class="form__input" id="form-text-top" name="form-text-top">
+      </div>
+      <div class="form__row">
+        <label for="form-text-bottom" class="form__label">Text on bottom (optional)</label>
+        <input type="text" class="form__input" id="form-text-bottom" name="form-text-bottom">
+      </div>
+      <div class="form__row">
+        <input type="submit" id="submit" class="form__button" value="Memify!">
+      </div>
+    </form>
+  </header>
+
+  <main>
+    <i class="fa-solid fa-trash-can fa-sm"></i>
+  </main>
+  <footer>
+    <p>Created by Veronica Ni. Copyright 2023.</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
