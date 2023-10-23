@@ -6,7 +6,7 @@
   <title>Meme Generator</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Inline&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bungee&family=Bungee+Inline&family=Inter&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css-resets/normalize.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -18,28 +18,46 @@
     <form action="">
       <div class="form__row">
         <label for="" class="form__label">Place image link here</label>
-        <input type="text" class="form__input" id="form-link-img" name="form-link-img">
+        <input type="text" class="form__input" id="form-link-img" name="form-link-img" placeholder="Place image link here">
       </div>
       <div class="form__row">
         <label for="form-text-top" class="form__label">Text on top (optional)</label>
-        <input type="text" class="form__input" id="form-text-top" name="form-text-top">
+        <input type="text" class="form__input" id="form-text-top" name="form-text-top" placeholder="Text on top (optional)">
       </div>
       <div class="form__row">
         <label for="form-text-bottom" class="form__label">Text on bottom (optional)</label>
-        <input type="text" class="form__input" id="form-text-bottom" name="form-text-bottom">
+        <input type="text" class="form__input" id="form-text-bottom" name="form-text-bottom" placeholder="Text on bottom (optional)">
       </div>
       <div class="form__row">
-        <input type="submit" id="submit" class="form__button" value="Memify!">
+        <input type="submit" id="submit" class="button" value="Memify!">
       </div>
     </form>
   </header>
 
   <main>
-    <i class="fa-solid fa-trash-can fa-sm"></i>
+    <figure class="meme__wrapper">
+      <p class="meme__text meme__text--top">Top text here</p>
+      <img src="https://images.unsplash.com/photo-1608848461950-0fe51dfc41cb?auto=format&fit=crop&q=80&w=1000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8fA%3D%3D" alt="cat-photo" class="meme__img">
+      <p class="meme__text meme__text--bottom">Bottom text here</p>
+    </figure>
+    <figure class="meme__wrapper">
+      <i class="fa-solid fa-trash-can fa-sm"></i>
+      <p class="meme__text meme__text--top">Top text here</p>
+      <img src="https://uploads.dailydot.com/2018/10/olli-the-polite-cat.jpg?q=65&auto=format&w=2270&ar=2:1&fit=crop" alt="cat-photo" class="meme__img">
+      <p class="meme__text meme__text--bottom">Bottom text here</p>
+    </figure>
+    <figure class="meme__wrapper">
+      <i class="fa-solid fa-trash-can fa-sm"></i>
+      <p class="meme__text meme__text--top">Top text here</p>
+      <img src="https://www.the-sun.com/wp-content/uploads/sites/6/2023/10/www-instagram-com-monkeycatluna-hl-851711797.jpg" alt="cat-photo" class="meme__img">
+      <p class="meme__text meme__text--bottom">Bottom text here</p>
+    </figure>
   </main>
+
   <footer>
     <p>Created by Veronica Ni. Copyright 2023.</p>
   </footer>
+ 
   <script src="script.js"></script>
 </body>
 </html>
