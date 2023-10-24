@@ -44,24 +44,22 @@ h1 {
   -webkit-text-stroke: 2px var(--clr-background); 
 }
 
-@media screen and (min-width: 375px){
-  h1 {
-    font-size: 3rem; 
-  }
-}
-
-@media screen and (min-width: 768px){
-  h1 {
-    font-size: 4rem; 
-  }
-}
-
 h2 {
   font-family: 'Bungee', sans-serif;
   font-size: 1.5rem;
   text-align: center;
 }
 
+@media screen and (min-width: 375px){
+  h1 {
+    font-size: 3rem; 
+  }
+}
+@media screen and (min-width: 768px){
+  h1 {
+    font-size: 4rem; 
+  }
+}
 @media screen and (min-width: 992px) {
   h1 {
     margin: 1rem;
@@ -150,9 +148,9 @@ main {
 }
 
 .meme__wrapper {
+  position: relative;
   max-width: 100%;
   margin: 0;
-  position: relative;
   background-color: black;
   border-radius: var(--border-radius);
   box-shadow: 5px 5px 5px var(--clr-shadow);
@@ -170,10 +168,10 @@ main {
   }
 }
 
-
 .meme__wrapper > img {
   width: 100%;
-  display: block; /* prevents pixel from showing up at the bottom*/ 
+  display: block; 
+  /* setting a display: prevents pixel from showing up at the bottom */
   border-radius: var(--border-radius);
   
 }
@@ -191,8 +189,6 @@ main {
 
 }
 
-
-
 .meme__text--top {
   top: 0;
 }
@@ -200,6 +196,31 @@ main {
 .meme__text--bottom {
   bottom: 0; 
 }
+
+  
+/* For centering absolute elements - https://thoughtbot.com/blog/positioning#position
+
+https://stackoverflow.com/questions/8508275/how-to-center-a-position-absolute-element*/
+
+.fa-trash-can {
+  display: none;
+  position: absolute;
+  z-index: 2; 
+  top: 50%;  /* position the top  edge of the element at the middle of the parent */
+  left: 50%; /* position the left edge of the element at the middle of the parent */
+  transform: translate(-50%, -50%); /* This is a shorthand of translateX(-50%) and translateY(-50%),  % values on translate() function is relative to the size of element itself*/
+}
+
+/* Hover state for memes */
+.meme__wrapper:hover .meme__text,
+.meme__wrapper:hover img {
+  opacity: 50%;
+}
+
+.meme__wrapper:hover .fa-trash-can {
+  display: block;
+}
+
 
 /* || Footer */
 
