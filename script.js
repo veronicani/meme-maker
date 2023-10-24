@@ -4,7 +4,21 @@ const main = document.querySelector('main');
 const imgInput = form.querySelector('#form-link-img');
 const topTextInput = form.querySelector('#form-text-top');
 const bottomTextInput = form.querySelector('#form-text-bottom');
+const meme = document.querySelectorAll('.meme__wrapper');
 
+
+//REMOVE MEME
+const removeMeme = main.addEventListener('click', function(event) {
+  console.log(event.target.tagName);
+  //if the tagName of the target is P, I, or MAIN
+  if (event.target.tagName === 'P' || event.target.tagName === 'I' || event.target.tagName === 'MAIN') {
+    //remove the parent of the target
+    event.target.parentElement.remove();
+  }
+});
+
+
+//ADD MEME
 const addMeme = form.addEventListener('submit', function(event) {
   //prevent the default action
   event.preventDefault();
@@ -64,3 +78,4 @@ function addBottomText(input) {
   text.innerText = input;
   return text;
 }
+
