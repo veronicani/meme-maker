@@ -196,7 +196,6 @@ main {
 .meme__text--bottom {
   bottom: 0; 
 }
-
   
 /* For centering absolute elements - https://thoughtbot.com/blog/positioning#position
 
@@ -220,7 +219,6 @@ https://stackoverflow.com/questions/8508275/how-to-center-a-position-absolute-el
 .meme__wrapper:hover .fa-trash-can {
   display: block;
 }
-
 
 /* || Footer */
 
