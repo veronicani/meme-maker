@@ -182,7 +182,10 @@ form {
 
 /* || Main */
 /* making columns - https://jsbin.com/qodefadaju/edit?html,css,output */ 
+/* https://css-tricks.com/piecing-together-approaches-for-a-css-masonry-layout/ */ 
+
 main {
+  /* display: grid will not give the column layout, not sure why*/
   -webkit-column-count: 1;
   -moz-column-count: 1;
   column-count: 1;
@@ -217,16 +220,18 @@ main {
 }
 
 /* || Meme */
+/* https://www.smashingmagazine.com/2021/05/complete-guide-css-container-queries/ */
+/* turned meme__wrapper into container to scale font to size of container*/
 .meme__wrapper {
   position: relative;
-  display: inline-block;
+  display: block; /* if inline, will remove the meme if a container prop is added*/
+  container: meme__wrapper / inline-size; /*name of query container, inline-size adjusts children's size according to container inline-size*/
   max-width: 100%;
   margin: 0; /* removes margins from the side */
-  margin-bottom: 30px; /*add bottom margin to each meme*/
+  margin-bottom: 30px; /*add bottom margin to each meme, no row-gap*/
   background-color: black;
   border-radius: var(--border-radius);
   box-shadow: 5px 5px 5px var(--clr-shadow);
-
 }
 
 .meme__wrapper > img {
@@ -234,7 +239,6 @@ main {
   display: block; 
   /* default display is inline, setting to block prevents pixel from showing up at the bottom */
   border-radius: var(--border-radius);
-  
 }
 
 .meme__text {
@@ -244,11 +248,17 @@ main {
   margin-block: 5px;
   text-align: center;
   font-family: 'Anton', sans-serif;
-  font-size: 3em;
+  font-size: 12cqi; /* 12% of query container's (meme__wrapper) inline size*/
   color: var(--clr-wht);
   text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
-
 }
+/*container query for adjusting .meme__text size if container goes past a certain size, but don't need it because font-size is scaled with cqi*/
+
+/* @container (min-width: 400px) {
+  .meme__text {
+    font-size: 13cqi;
+  }
+} */
 
 .meme__text--top {
   top: 0;
