@@ -37,17 +37,28 @@ body {
 
 /* || Typography */
 h1 {
-  font-family: 'Bungee', sans-serif;
+  font-family: 'Bungee Inline', sans-serif;
   font-size: 2.25rem;
   text-align: center;
   margin-block: .25em;
-  -webkit-text-stroke: 2px var(--clr-background); 
+  /* -webkit-text-stroke: .5px var(--clr-background);  */
+  /* using 8-axis shadow to mimic creating an outside stroke */ 
+  text-shadow:
+  -4px -4px 0 var(--clr-background),
+   0   -4px 0 var(--clr-background),
+   4px -4px 0 var(--clr-background),
+   4px  0   0 var(--clr-background),
+   4px  4px 0 var(--clr-background),
+   0    4px 0 var(--clr-background),
+  -4px  4px 0 var(--clr-background),
+  -4px  0   0 var(--clr-background);
 }
 
 h2 {
   font-family: 'Bungee', sans-serif;
   font-size: 1.5rem;
   text-align: center;
+  margin-block: .25rem;
 }
 
 @media screen and (min-width: 375px){
@@ -83,14 +94,41 @@ h2 {
   box-shadow: 2px 5px 5px var(--clr-shadow);
 }
 
+.button:active { 
+  transform: scale(0.98); 
+  /* Scaling button to 0.98 to its original size */ 
+  box-shadow: 2px 2px 2px var(--clr-shadow); 
+  /* Lowering the shadow */ 
+}
+/* https://css-tricks.com/html-inputs-and-labels-a-love-story/ - for hiding labels but maintain accessibility.
+/* For non-natively-focusable elements. For natively focusable elements */
+/* Use .visually-hidden:not(:focus):not(:active) */
+.visually-hidden {
+  border-width: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+  width: 1px !important;
+}
+
+.hide {
+  display: none;
+}
+
 /* || Header */
 header {
+  position: fixed;
+  /* top: 0; */
+  z-index: 3; /* places it above memes in z-index */
   display: flex;
   flex-direction: column;
   width: 100%;
   /* margin-top: -1rem; */
   margin-bottom: 1rem; 
-  padding: 1rem; /* I want the padding for the header to scale with the text*/
+  padding: .5rem; /* I want the padding for the header to scale with the text*/
   background-color: var(--clr-primary);
   border: var(--border); 
   border-color: var(--clr-accent);
@@ -106,7 +144,7 @@ header {
 
 @media screen and (min-width: 992px) {
   header {
-    padding-inline: 8rem; 
+    padding-inline: 16rem; 
   }
 }
 
@@ -117,7 +155,7 @@ form {
 }
 
 .form__row {
-  margin-block: .5rem; /* vertical margins*/ 
+  margin-block: .25rem; /* vertical margins*/ 
 }
 
 .form__input {
@@ -134,7 +172,8 @@ form {
 .form__row .button {
   display: flex;
   justify-items: center;
-  margin: auto; 
+  margin-inline: auto;
+  margin-block: 1rem; 
 }
 
 /* || Main */
@@ -143,10 +182,22 @@ main {
   flex-wrap: wrap;
   align-items: flex-start; /* prevents items from stretching down */
   justify-content: center;
-  gap: 30px; 
-  margin: 1rem; 
+  gap: 30px;
+  margin: 1rem;
+  margin-top: 31rem;
 }
 
+.main--header-collapse {
+  margin-top: 8rem;  
+}
+
+@media screen and (min-width: 768px) {
+  .main--header-collapse {
+    margin-top: 10rem; 
+  }
+}
+
+/* || Meme */
 .meme__wrapper {
   position: relative;
   max-width: 100%;
@@ -154,6 +205,7 @@ main {
   background-color: black;
   border-radius: var(--border-radius);
   box-shadow: 5px 5px 5px var(--clr-shadow);
+
 }
 
 @media screen and (min-width: 768px) {
@@ -202,22 +254,32 @@ main {
 https://stackoverflow.com/questions/8508275/how-to-center-a-position-absolute-element*/
 
 .fa-trash-can {
-  display: none;
+  display: block;
   position: absolute;
   z-index: 2; 
   top: 50%;  /* position the top  edge of the element at the middle of the parent */
   left: 50%; /* position the left edge of the element at the middle of the parent */
   transform: translate(-50%, -50%); /* This is a shorthand of translateX(-50%) and translateY(-50%),  % values on translate() function is relative to the size of element itself*/
+  opacity: 0%;
 }
 
 /* Hover state for memes */
+.meme__wrapper:hover {
+  transform: translate(-2px, -7px);
+  box-shadow: 5px 7px 5px var(--clr-shadow);
+  transition: all 0.2s ease-in-out;
+}
+
 .meme__wrapper:hover .meme__text,
 .meme__wrapper:hover img {
   opacity: 50%;
+  transition: all 0.2s ease-in-out;
 }
 
 .meme__wrapper:hover .fa-trash-can {
   display: block;
+  opacity: 100%;
+  transition: all 0.2s ease-in-out; 
 }
 
 /* || Footer */

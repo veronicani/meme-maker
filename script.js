@@ -5,18 +5,30 @@ const imgInput = form.querySelector('#form-link-img');
 const topTextInput = form.querySelector('#form-text-top');
 const bottomTextInput = form.querySelector('#form-text-bottom');
 const meme = document.querySelectorAll('.meme__wrapper');
+const header = document.querySelector('header');
+const instructions = document.querySelector('.instructions');
 
+//TOGGLE HEADER
+const toggleHeader = header.addEventListener('click', function(event) {
+  console.log(event.target.tagName);
+  if (event.target.tagName !== 'INPUT') {
+    //apply hide class to instructions, form
+    console.log(header.classList);
+    instructions.classList.toggle('hide');
+    form.classList.toggle('hide');
+    main.classList.toggle('main--header-collapse');
+  }
+});
 
 //REMOVE MEME
 const removeMeme = main.addEventListener('click', function(event) {
   console.log(event.target.tagName);
-  //if the tagName of the target is P, I, or MAIN
-  if (event.target.tagName === 'P' || event.target.tagName === 'I' || event.target.tagName === 'MAIN') {
+  //if the tagName of the target is P, I, or IMG
+  if (event.target.tagName === 'P' || event.target.tagName === 'I' || event.target.tagName === 'IMG') {
     //remove the parent of the target
     event.target.parentElement.remove();
   }
 });
-
 
 //ADD MEME
 const addMeme = form.addEventListener('submit', function(event) {
