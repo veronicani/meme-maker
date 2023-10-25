@@ -7,6 +7,7 @@
 
 /* || General Styles */
 :root {
+  --clr-background-dk: #250656;
   --clr-background: #4D29B4;
   --clr-primary: #E692F3;
   --clr-accent:#44B8F9;
@@ -21,7 +22,7 @@
 * {
   box-sizing: border-box;
 }
-
+/* MAKE SURE TO TRY SAVING AND ACCESSING CODE BEFORE making masonry changes*/
 body {
   min-height: 100vh;
   display: flex;
@@ -32,6 +33,7 @@ body {
   color: var(--clr-wht);
   font-size: var(--font-size);
   font-family:'Inter', sans-serif;
+  background-image: linear-gradient(var(--clr-background-dk), var(--clr-background));
   background-color: var(--clr-background);
 }
 
@@ -129,8 +131,10 @@ header {
   /* margin-top: -1rem; */
   margin-bottom: 1rem; 
   padding: .5rem; /* I want the padding for the header to scale with the text*/
+  background-image: linear-gradient(var(--clr-background), var(--clr-primary));
   background-color: var(--clr-primary);
   border: var(--border); 
+  border-top: none;
   border-color: var(--clr-accent);
   border-bottom-left-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
@@ -286,4 +290,7 @@ https://stackoverflow.com/questions/8508275/how-to-center-a-position-absolute-el
 
 footer {
   text-align: center;
+  font-style: italic;
+  color: var(--clr-wht);
+  opacity: 50%;
 }
