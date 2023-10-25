@@ -227,7 +227,7 @@ main {
 .meme__wrapper > img {
   width: 100%;
   display: block; 
-  /* setting a display: prevents pixel from showing up at the bottom */
+  /* default display is inline, setting to block prevents pixel from showing up at the bottom */
   border-radius: var(--border-radius);
   
 }
